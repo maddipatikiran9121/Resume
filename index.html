@@ -5,161 +5,264 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
-            line-height: 1.6;
-            background-color: #f4f4f4;
-            color: #333;
+            background-color: #000000;
         }
 
         header {
-            background-color: #343a40;
+            background-color: #333;
             color: #fff;
-            text-align: center;
-            padding: 20px;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
         }
 
         nav {
-            background-color: #343a40;
-            padding: 10px;
-            text-align: center;
+            display: flex;
+            align-items: center;
+            padding-right: 50px;
+            font-weight:bold;
+
         }
 
         nav a {
             color: #fff;
             text-decoration: none;
-            margin: 0 15px;
-            font-size: 16px;
-            transition: color 0.3s ease;
+            padding: 10px;
+            margin: 0 10px;
         }
-
         nav a:hover {
             color: #D67BA8;
         }
 
-        section {
-            margin: 20px;
+        .dropdown {
+            display: none;
+            position: relative;
         }
 
-        h2 {
-            color: #343a40;
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #333;
+            min-width: 160px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            z-index: 1;
         }
 
-        .project {
-            border: 1px solid #ccc;
-            padding: 15px;
-            margin-bottom: 20px;
-            border-radius: 8px;
-            background-color: #fff;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        .dropdown:hover .dropdown-content {
+            display: flex;
+            flex-direction: column;
         }
 
-        footer {
-            background-color: #343a40;
-            color: #fff;
-            text-align: center;
-            padding: 10px;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-        }
-
-        @media (max-width: 768px) {
+        @media screen and (max-width: 768px) {
             nav {
+                display: none; /* Hide the regular nav for small screens */
+                
+            }
+
+            .dropdown {
                 display: flex;
                 flex-direction: column;
             }
 
-            nav a {
-                margin: 10px 0;
+            .dropdown-content {
+                position: relative;
+            }
+
+            /* Add your links directly for small screens */
+            .dropdown a {
+                margin: 5px 0;
+                padding-right: 30px;
+                color: #fff;
             }
         }
-    </style>
-    <title>Maddipati Kiran Kumar - UI Engineer Portfolio</title>
+
+        /* Show regular nav for larger screens */
+        @media screen and (min-width: 769px) {
+            .dropdown:hover .dropdown-content {
+                display: none;
+            }
+
+            nav {
+                display: flex;
+                justify-content: flex-end;
+                flex-grow: 1;
+                
+            }
+        }
+
+        /* Add space to body content to account for fixed header */
+        body {
+            padding-top: 60px;
+        }
+        .about-sec {
+        display: flex; /* Set display to flex */
+        color: rgb(0, 0, 0);
+        padding-top: 50px;
+       justify-content: center; /* Align content to the center along the main axis */
+       background-color: #000000;
+       color: #fff;
+       }
+h2{
+    text-align: center;
+    
+}
+h2 p {
+    font-size: 15px;
+}
+img {
+  border: 2px solid rgb(255, 249, 249);
+  border-radius: 100px;
+  width: 200px;
+}
+.container{
+    justify-content: center;
+    text-align: center; /* Center the text within the container */
+    
+
+}
+.icons {
+    display: flex;
+    gap: 20px; /* Adjust the value to your desired spacing */
+    color: #fff;
+    justify-content: center;
+}
+
+a svg {
+    fill: rgb(255, 255, 255); /* Change the fill color of the SVG */
+  }
+
+  .experiance{
+    color: #fff;
+  }
+  .subtext {
+  padding: 20px;
+  background-color: rgb(0, 0, 0);
+  margin-top: 20px;
+  border-radius: 50px;
+  animation: popup 1s ease-out; /* Adjust the duration and timing function as needed */
+}
+
+@keyframes popup {
+  0% {
+    transform: scale(0);
+    opacity: 10;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+.experiance-sub{
+    display: flex;
+    margin: 50px;
+    background-color: #000000;
+    gap: 50px;
+    justify-content: center;
+}
+.expcareds{
+    background-color: rgb(53, 50, 44);
+    border-radius: 20px;
+    padding: 20px;
+    max-width: 700px;
+    justify-content: space-evenly;
+}
+
+  </style>
 </head>
 <body>
 
     <header>
-        <h1>Maddipati Kiran Kumar</h1>
-        <p>UI Engineer</p>
+        <div><h2>Kiran Kumar Maddipati</h2></div>
+        <nav>
+            <a href="#ABOUTME">ABOUT ME</a>
+            <a href="#EXPERIANCE">EXPERIANCE</a>
+            <a href="#">SKILLS</a>
+            <a href="#">MY WORK</a>
+            <a href="#">CONTECT</a>
+            <!-- Add more links as needed -->
+        </nav>
+        <div class="dropdown">
+            <a href="#">Menu</a>
+            <div class="dropdown-content">
+                <a href="#ABOUTME">ABOUT ME</a>
+            <a href="#EXPERIANCE">EXPERIANCE</a>
+            <a href="#">SKILLS</a>
+            <a href="#">MY WORK</a>
+            <a href="#">CONTECT</a>
+                <!-- Add more links as needed -->
+            </div>
+        </div>
     </header>
 
-    <nav>
-        <a href="#about">About</a>
-        <a href="#work-experience">Work Experience</a>
-        <a href="#education">Education</a>
-        <a href="#technical-skills">Technical Skills</a>
-        <a href="#contact">Contact</a>
-    </nav>
-
-    <section id="about">
-        <h2>About Me</h2>
-        <p>Experienced Angular Web Developer skilled in HTML, CSS, JavaScript, and Angular. I create user-friendly web apps with reusable components and thorough testing. I collaborate with designers to ensure visually appealing and efficient web pages. I specialize in turning project requirements into streamlined solutions and seamlessly integrating with backend teams and databases. Let's bring innovation and precision to your projects – I'm the Angular Web Developer you need.</p>
-    </section>
-
-    <section id="work-experience">
-        <h2>Work Experience</h2>
-        
-        <div class="project">
-            <h3>UI Engineer at KVP Business Solutions Pvt Ltd</h3>
-            <p>March 2023 - Present | Bengaluru</p>
-            <p>Project: University Student Registration Web-App</p>
-            <ul>
-                <li>Developed visually appealing and user-friendly interfaces.</li>
-                <li>Implemented responsive design principles for cross-device functionality.</li>
-                <li>Collaborated with backend developers and UX designers for seamless integration.</li>
-                <!-- Add more points as needed -->
-            </ul>
+    <!-- Add some content to scroll -->
+    <div style="height: 1000px; background-color: #000000;">
+        <section id="ABOUTME" class="about-sec">
+            <div class="container">
+            <img src="https://t4.ftcdn.net/jpg/01/35/92/85/360_F_135928597_xU5EzKq6vpOeXPX5vsbI48zfVVkSRlrF.jpg">
+            <h2>Kiran Kumar Maddipati </h2>
+                <p>UI Engineer</p>
+                <div class="icons">
+                  <a href="https://www.linkedin.com/in/kiran9121/" target="_blank" rel="noopener noreferrer">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-linkedin" viewBox="0 0 16 16">
+                        <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401m-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4"/>
+                      </svg>
+                  </a>
+                  <a href="https://github.com/dashboard" target="_blank" rel="noopener noreferrer">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-github" viewBox="0 0 16 16">
+                        <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8"/>
+                      </svg>
+                  </a>
+                  <a href="https://chat.openai.com/c/0c7738e2-8097-4bd9-9e4a-90f293212d1c" target="_blank" rel="noopener noreferrer">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-envelope-check" viewBox="0 0 16 16">
+                      <path d="M2 2a2 2 0 0 0-2 2v8.01A2 2 0 0 0 2 14h5.5a.5.5 0 0 0 0-1H2a1 1 0 0 1-.966-.741l5.64-3.471L8 9.583l7-4.2V8.5a.5.5 0 0 0 1 0V4a2 2 0 0 0-2-2zm3.708 6.208L1 11.105V5.383zM1 4.217V4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v.217l-7 4.2z"/>
+                      <path d="M16 12.5a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0m-1.993-1.679a.5.5 0 0 0-.686.172l-1.17 1.95-.547-.547a.5.5 0 0 0-.708.708l.774.773a.75.75 0 0 0 1.174-.144l1.335-2.226a.5.5 0 0 0-.172-.686Z"/>
+                    </svg>
+                  </a>
+                </div>
+                <div class="subtext">
+                    <h2>Hey!</h2>
+                    <p>I'm Kiran Kumar, a UI engineer who loves turning code into cool digital stuff. I make <br> things look good and easy to use – it's like magic on the internet. Stick around, and let's <br> make the web a friendlier place together!</p>
+                </div>
         </div>
-
-        <div class="project">
-            <h3>Front-end Developer at SalientMinds Technologies</h3>
-            <p>February 2022 – February 2023</p>
-            <p>Projects: Health Care, Crypto, Chatbot Web Applications</p>
-            <ul>
-                <li>Developed responsive UI for a healthcare web app using HTML, CSS, and JavaScript.</li>
-                <li>Integrated Bootstrap for consistent styling and improved user interface.</li>
-                <!-- Add more points as needed -->
-            </ul>
-        </div>
-    </section>
-
-    <section id="education">
-        <h2>Education</h2>
-        <p>B.Tech in Civil Engineering, GIET Engineering College, Rajahmundry | June 2017 - April 2020</p>
-        <p>Computer Science, Rajahmundry</p>
-    </section>
-
-    <section id="technical-skills">
-        <h2>Technical Skills</h2>
-        <ul>
-            <li>Programming Languages: Python, JavaScript, TypeScript</li>
-            <li>Web Development: HTML, CSS, Bootstrap, Angular</li>
-            <li>Backend Frameworks: Django, Fast API</li>
-            <li>Databases: MySQL, PostgreSQL</li>
-        </ul>
-    </section>
-
-    <section id="contact">
-        <h2>Contact</h2>
-        <p>Email: Maddipatikiran9121@gmail.com</p>
-        <p>Phone: 9121891339</p>
-        <p>LinkedIn: <a href="https://www.linkedin.com/in/kiran9121" target="_blank">Kiran Kumar's LinkedIn</a></p>
-    </section>
-
-    <footer>
-        <p>&copy; 2023 Maddipati Kiran Kumar. All rights reserved.</p>
-    </footer>
-
-    <script>
-        // You can add JavaScript functionality here if needed
-        // For example:
-        // document.addEventListener('DOMContentLoaded', function () {
-        //     // Your code here
-        // });
-    </script>
+        </section>
+        <section id="EXPERIANCE" class="experiance">
+            <h2>EXPERIANCE</h2>
+            <div class="experiance-sub">
+                <div class="expcareds">
+                    Front-end Developer SalientMinds Technologies <br> Feb / 2022 – Feb/2023<br><br>
+                    Worked on projects: Health care, Crypto, Chatbot Web applications.<br>
+                    • Developed responsive UI for a healthcare web app using HTML, CSS, and JavaScript.<br>
+                    • Integrated Bootstrap for consistent styling and improved user interface.<br>
+                    • Implemented real-time market data features for a crypto currency dashboard using Typescript.<br>
+                    • Enhanced user experience with interactive charts and graphs.<br>
+                    • Designed and implemented intuitive chat features with real-time updates for a chatbot web app.<br>
+                    • Collaborated with backend developers and designers for seamless integration.<br>
+                    • Contributed to discussions on enhancing overall application functionality.<br>
+                    • Identified and resolved frontend issues, improving application performance.<br>
+                    
+                </div>
+                <div class="expcareds">
+                    <p>KVP Business Solutions Pvt Ltd<br> Mar / 2023 - ongoing Bengalur.</p>
+                    • Project: university student registration web-app<br>
+                    • Developed visually appealing and user-friendly interfaces.<br>
+                    • Implemented responsive design principles for cross-device functionality.<br>
+                    • Collaborated with backend developers and UX designers for seamless integration.<br>
+                    • Utilized prototyping tools for iterative design feedback.<br>
+                    • Improved website performance and loading speed.<br>
+                    • Managed codebase changes using Git for organized development.<br>
+                    • Incorporated user feedback and usability testing for continuous improvement<br>
+                </div>
+            </div>
+        </section>
+    </div>
 
 </body>
 </html>
